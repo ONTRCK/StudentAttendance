@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ONTRCK — North-West University</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --gold: #f8f8f8;
+    --gold-light: #ffffff;
+    --purple: #6c3d91;
+    --purple-deep: #4a2963;
+    --white: #FFFFFF;
+    --off-white: #F0EFE8;
+    --muted: #b9b3c9;
+    --card-bg: rgba(108,61,145,0.55);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(180deg, var(--purple-deep) 0%, #23132f 100%);
+    color: var(--white);
+    min-height: 100vh;
+  }
+
+  /* ---------- Header ---------- */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 16px;
+    background: rgba(108,61,145,0.94);
+    border-bottom: 1px solid rgba(200,168,75,0.3);
+  }
+  .header-left { display: flex; align-items: center; gap: 12px; min-width: 0; }
+  .nwu-logo-circle {
+    width: 40px; height: 40px; flex-shrink: 0;
+    background: var(--white);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    padding: 5px;
+    overflow: hidden;
+  }
+  .nwu-logo-circle img { width: 100%; height: 100%; object-fit: contain; }
+  .logo-wordmark { display: flex; flex-direction: column; gap: 2px; line-height: 1; min-width: 0; }
+  .nwu-name {
+    font-family: 'Montserrat', sans-serif; font-size: 8px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase; color: var(--muted);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .ontrck-name {
+    font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 900;
+    letter-spacing: 3px; color: var(--gold);
+  }
+  .header-pill {
+    flex-shrink: 0;
+    font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold);
+    border: 1px solid rgba(200,168,75,0.4); padding: 5px 10px;
+    border-radius: 100px; white-space: nowrap;
+  }
+
+  /* ---------- Page layout ---------- */
+  .page-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 28px 16px 16px;
+  }
+
+  .hero { text-align: center; max-width: 700px; }
+  .welcome-eyebrow {
+    font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase; color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .hero h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(28px, 8vw, 56px);
+    font-weight: 900; line-height: 1.1;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .hero h1 em { font-style: normal; color: var(--gold); }
+  .hero p { font-size: 14px; font-weight: 300; color: var(--muted); line-height: 1.7; }
+
+  /* ---------- Card ---------- */
+  .card {
+    width: 100%;
+    max-width: 700px;
+    background: var(--card-bg);
+    border: 1px solid rgba(200,168,75,0.2);
+    border-top: 3px solid var(--gold);
+    border-radius: 16px;
+    padding: 24px 20px;
+  }
+  .card-heading {
+    font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase; color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .steps { display: flex; flex-direction: column; gap: 18px; }
+  .step { display: flex; align-items: flex-start; gap: 14px; }
+  .step-num {
+    flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%;
+    border: 1.5px solid rgba(200,168,75,0.6);
+    background: rgba(200,168,75,0.1);
+    display: grid; place-items: center;
+    font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; color: var(--gold);
+  }
+  .step-content strong {
+    display: block; font-family: 'Montserrat', sans-serif; font-size: 13px;
+    font-weight: 600; margin-bottom: 5px;
+  }
+  .step-content p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+  .email-chip {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(200,168,75,0.12); border: 1px solid rgba(200,168,75,0.35);
+    border-radius: 8px; padding: 7px 12px; margin-top: 8px;
+    font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700;
+    color: var(--gold-light); word-break: break-all;
+  }
+  .card-divider { border: none; border-top: 1px solid rgba(200,168,75,0.15); margin: 20px 0; }
+  .tip-box {
+    display: flex; gap: 12px; align-items: flex-start;
+    background: rgba(200,168,75,0.07);
+    border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0;
+    padding: 12px 14px;
+  }
+  .tip-text { font-size: 12px; color: var(--muted); line-height: 1.65; }
+  .tip-text strong { color: var(--off-white); }
+
+  /* ---------- PowerApp section ---------- */
+  .powerapp-section { width: 100%; max-width: 1100px; }
+  .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .section-label {
+    font-family: 'Montserrat', sans-serif; font-size: 9px; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase; color: var(--gold); white-space: nowrap;
+  }
+  .section-line { flex: 1; height: 1px; background: rgba(200,168,75,0.18); }
+  .param-notice {
+    display: none; align-items: center; gap: 8px; flex-wrap: wrap;
+    background: rgba(200,168,75,0.08); border: 1px solid rgba(200,168,75,0.2);
+    border-radius: 10px; padding: 10px 14px; font-size: 11px; color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .param-notice code {
+    font-family: 'Courier New', monospace; font-size: 11px; color: var(--gold-light);
+    background: rgba(200,168,75,0.1); padding: 2px 6px; border-radius: 4px;
+    word-break: break-all;
+  }
+  .powerapp-frame {
+    width: 100%; border-radius: 14px; overflow: hidden;
+    border: 1px solid rgba(200,168,75,0.2);
+    background: rgba(30,15,45,0.8);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+  }
+  .frame-titlebar {
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 14px; background: rgba(20,8,32,0.85);
+    border-bottom: 1px solid rgba(200,168,75,0.15);
+  }
+  .frame-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+  .frame-dot-1 { background: #FF5F57; }
+  .frame-dot-2 { background: #FFBD2E; }
+  .frame-dot-3 { background: #28C840; }
+  .frame-url-bar {
+    flex: 1; min-width: 0; background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08); border-radius: 6px;
+    padding: 4px 10px; font-size: 10px; color: var(--muted);
+    font-family: 'Courier New', monospace; overflow: hidden;
+    text-overflow: ellipsis; white-space: nowrap;
+  }
+  #powerapp-iframe { width: 100%; height: 70vh; min-height: 420px; border: none; display: block; }
+  .app-placeholder {
+    min-height: 420px; height: 70vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 14px; color: var(--muted);
+    padding: 20px;
+  }
+  .app-placeholder .pa-icon {
+    width: 56px; height: 56px; border-radius: 14px;
+    background: rgba(200,168,75,0.08); border: 1px solid rgba(200,168,75,0.2);
+    display: grid; place-items: center; font-size: 26px;
+  }
+  .app-placeholder h3 {
+    font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 600; color: var(--off-white);
+  }
+  .app-placeholder p {
+    font-size: 12px; color: var(--muted); text-align: center;
+    max-width: 380px; line-height: 1.7;
+  }
+  .app-placeholder code {
+    font-size: 11px; color: var(--gold-light); background: rgba(200,168,75,0.1);
+    padding: 2px 6px; border-radius: 4px;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    text-align: center; padding: 20px 16px;
+    border-top: 1px solid rgba(200,168,75,0.1); margin-top: 8px;
+  }
+  footer p { font-size: 10px; letter-spacing: 1px; color: rgba(185,179,201,0.5); text-transform: uppercase; }
+
+  /* ---------- Larger screens (tablet / desktop) ---------- */
+  @media (min-width: 640px) {
+    header { padding: 0 32px; height: 76px; }
+    .nwu-logo-circle { width: 50px; height: 50px; }
+    .nwu-name { font-size: 10px; letter-spacing: 3px; }
+    .ontrck-name { font-size: 23px; letter-spacing: 4px; }
+    .header-pill { font-size: 10px; padding: 6px 16px; letter-spacing: 2px; }
+
+    .page-wrap { padding: 48px 24px 20px; gap: 32px; }
+    .hero p br { display: inline; }
+    .card { padding: 32px 36px; border-radius: 20px; }
+    .card-heading { font-size: 11px; margin-bottom: 26px; }
+    .frame-titlebar { padding: 12px 18px; }
+  }
+
+  @media (min-width: 900px) {
+    .card { max-width: 720px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <div class="nwu-logo-circle">
+      <img src="NWU_Logo (2).png" alt="North-West University logo">
+    </div>
+    <div class="logo-wordmark">
+      <span class="nwu-name">North-West University</span>
+      <span class="ontrck-name">ONTRCK</span>
+    </div>
+  </div>
+</header>
+
+<div class="page-wrap">
+
+  <div class="hero">
+    <div class="welcome-eyebrow">Welcome, NWU Student</div>
+    <h1>You're <em>On Track</em><br>to Success</h1>
+    <p>ONTRCK is your centralised attendance tracker. Follow the three steps below to sign in and access attendance application.</p>
+  
+  </div>
+
+  <div class="card">
+    <div class="card-heading">How to Sign In</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <strong>Enter your NWU student e-mail address</strong>
+          <p>Use your eight-digit student number followed by <strong style="color:var(--off-white)">@mynwu.ac.za</strong></p>
+          <div class="email-chip">✉ 12345678@mynwu.ac.za</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <strong>Select "Active Directory" as the sign-in method</strong>
+          <p>When prompted, choose <strong style="color:var(--off-white)">Active Directory</strong> from the available authentication options before entering your password.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <strong>Log in with your CAS password</strong>
+          <p>Use the same password you use for <strong style="color:var(--off-white)">eFundi</strong>. This is your Central Authentication Service (CAS) password shared across all NWU systems.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="card-divider">
+
+    <div class="tip-box">
+      <div>💡</div>
+      <div class="tip-text">
+        <strong>Forgotten your CAS password?</strong> Reset it at <strong>my.nwu.ac.za</strong> using the self-service portal, or contact the NWU IT Helpdesk for assistance.
+      </div>
+    </div>
+  </div>
+
+  <div class="powerapp-section">
+    <div class="section-header">
+      <span class="section-label">ONTRCK Application</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="param-notice" id="param-notice">
+      ⚡ App loaded with URL parameter: <code id="param-display"></code>
+    </div>
+
+    <div class="powerapp-frame">
+      <div class="frame-titlebar">
+        <div class="frame-dot frame-dot-1"></div>
+        <div class="frame-dot frame-dot-2"></div>
+        <div class="frame-dot frame-dot-3"></div>
+        <div class="frame-url-bar" id="frame-url-display">apps.powerapps.com</div>
+      </div>
+      <div id="app-container">
+        <div class="app-placeholder" id="app-placeholder">
+          <div class="pa-icon">⚡</div>
+          <h3>ONTRCK PowerApp</h3>
+          <p>
+            Add your PowerApps unique token to the page URL to load the app automatically:<br><br>
+            <code>ontrck.html?app=YOUR_UNIQUE_TOKEN</code><br><br>
+            Or pass a full URL with <code>?appurl=https://apps.powerapps.com/…</code><br>
+            Or set <code>BASE_APP_URL</code> in the script below.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 North-West University · ONTRCK Student Tracking System</p>
+</footer>
+
+<script>
+  /**
+   * ONTRCK — PowerApp Embed Configuration
+   *
+   * BASE_APP_URL is the fixed base link (all query params except SessionID).
+   * Pass SessionID via the URL hash, e.g.:
+   *   yourpage.html#SessionID=T67_MFPC111_19526
+   * Using the hash keeps its "&" characters from clashing with the page's
+   * own query string.
+   */
+  const BASE_APP_URL = 'https://apps.powerapps.com/play/e/3438315b-970d-e3c1-9d9b-20690032f757/a/c806a1b5-c017-4d4a-bfd2-5cc26a0c2687?tenantId=b14d86f1-83ba-4b13-a702-b5c0231b9337&hint=e85b9379-7323-4868-97c1-4946d228ef69&sourcetime=1764058375064';
+
+  (function () {
+    const hash = window.location.hash;
+    const hashParams = new URLSearchParams(hash.startsWith('#') ? hash.slice(1) : '');
+    const sessionID = hashParams.get('SessionID');
+
+    let embedUrl = BASE_APP_URL;
+    if (sessionID) {
+      embedUrl += '&SessionID=' + encodeURIComponent(sessionID);
+    }
+
+    const container = document.getElementById('app-container');
+    const urlBar = document.getElementById('frame-url-display');
+    const notice = document.getElementById('param-notice');
+    const paramDisp = document.getElementById('param-display');
+
+    try {
+      const u = new URL(embedUrl);
+      urlBar.textContent = u.hostname + u.pathname;
+    } catch (e) {
+      urlBar.textContent = embedUrl.substring(0, 80) + '…';
+    }
+
+    if (sessionID) {
+      notice.style.display = 'flex';
+      paramDisp.textContent = '#SessionID=' + sessionID;
+    }
+
+    container.innerHTML =
+      '<iframe id="powerapp-iframe"' +
+      ' src="' + embedUrl + '"' +
+      ' allow="geolocation; microphone; camera; fullscreen"' +
+      ' sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-top-navigation"' +
+      ' title="ONTRCK PowerApp">' +
+      '</iframe>';
+  })();
+</script>
+
+</body>
+</html>
